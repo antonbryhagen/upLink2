@@ -10,11 +10,14 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
+    @State var lastUpdate = Date()
     
     var body: some View {
         NavigationView {
             let sensorsToDisplay = ["Current outd temp (BT1)", "Supply line (BT61)", "Return line (BT62)"]
+            
             ScrollView(.vertical, showsIndicators: true){
+                Text("Last update: \(formattedDate)")
                 ForEach(viewModel.dataPoints, id: \.self) { dataPoint in
                     if sensorsToDisplay.contains(dataPoint.parameterName){
                         SensorCard(sensorName: dataPoint.parameterName, sensorValue: String(dataPoint.value))
@@ -30,10 +33,17 @@ struct ContentView: View {
             .navigationTitle("myUplink 2")
             .refreshable {
                 viewModel.getTokenAndProceed()
+                lastUpdate = Date()
             }
             
         }
     }
+    
+    var formattedDate: String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm:ss" // hour:minute:second day/month (dd/MM) format
+            return formatter.string(from: lastUpdate)
+        }
 }
 
 #Preview {
