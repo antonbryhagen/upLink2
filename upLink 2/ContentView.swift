@@ -20,6 +20,9 @@ struct ContentView: View {
                         SensorCard(sensorName: dataPoint.parameterName, sensorValue: String(dataPoint.value))
                     }
                 }
+                NavigationLink(destination: QuickViewSettings()){
+                    Text("Add or remove senors")
+                }
             }
             .onAppear{
                 viewModel.getTokenAndProceed()
@@ -28,6 +31,7 @@ struct ContentView: View {
             .refreshable {
                 viewModel.getTokenAndProceed()
             }
+            
         }
     }
 }
