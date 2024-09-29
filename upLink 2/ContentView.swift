@@ -13,47 +13,21 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            //if(viewModel.dataPoints.isEmpty){
-            if(1 != 1){
-                Text("Error fetching data from myUplink API")
-            }else {
-                VStack {
-                    Button(action: {
-                        viewModel.getTokenAndProceed()
-                    }){
-                        Text("Refresh Data")
-                    }
-                    
-                    
-                    List {
-                        ForEach(viewModel.dataPoints, id: \.self) { dataPoint in
-                            if (dataPoint.parameterId == "Error"){
-                                Text(dataPoint.parameterName)
-                            }else{
-                                let sensorsToDisplay = ["Current outd temp (BT1)", "Supply line (BT61)", "Return line (BT62)"]
-                                if sensorsToDisplay.contains(dataPoint.parameterName){
-                                    HStack {
-                                        
-                                        Text(dataPoint.parameterName)
-                                            .bold()
-                                        Text(dataPoint.strVal)
-                                        //Text("Updated: \(dataPoint.timestamp)")
-                                        
-                                    }
-                                }
-                                
-                            }
-                            
-                        }
-                        .padding(3)
-                    }
-                    .navigationTitle("Data Points")
-                    .onAppear{
-                        viewModel.getTokenAndProceed()
+            let sensorsToDisplay = ["Current outd temp (BT1)", "Supply line (BT61)", "Return line (BT62)"]
+            ScrollView(.vertical, showsIndicators: true){
+                ForEach(viewModel.dataPoints, id: \.self) { dataPoint in
+                    if sensorsToDisplay.contains(dataPoint.parameterName){
+                        SensorCard(sensorName: dataPoint.parameterName, sensorValue: String(dataPoint.value))
                     }
                 }
             }
-            
+            .onAppear{
+                viewModel.getTokenAndProceed()
+            }
+            .navigationTitle("myUplink 2")
+            .refreshable {
+                viewModel.getTokenAndProceed()
+            }
         }
     }
 }
