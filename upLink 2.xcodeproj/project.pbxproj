@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A4E533F2CA841FB00672AE9 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4E533E2CA841FB00672AE9 /* secrets.plist */; };
+		3A4E53412CA9ED1600672AE9 /* SensorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E53402CA9ED1600672AE9 /* SensorCard.swift */; };
 		3A71855C2C9EB7AF00A8126A /* upLink_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71855B2C9EB7AF00A8126A /* upLink_2App.swift */; };
 		3A71855E2C9EB7AF00A8126A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71855D2C9EB7AF00A8126A /* ContentView.swift */; };
 		3A7185602C9EB7B100A8126A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A71855F2C9EB7B100A8126A /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		3A4E533E2CA841FB00672AE9 /* secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
+		3A4E53402CA9ED1600672AE9 /* SensorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorCard.swift; sourceTree = "<group>"; };
 		3A7185582C9EB7AF00A8126A /* upLink 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "upLink 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A71855B2C9EB7AF00A8126A /* upLink_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upLink_2App.swift; sourceTree = "<group>"; };
 		3A71855D2C9EB7AF00A8126A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				3A7185612C9EB7B100A8126A /* Preview Content */,
 				3A7185692C9EB7EE00A8126A /* ViewModel.swift */,
 				3A4E533E2CA841FB00672AE9 /* secrets.plist */,
+				3A4E53402CA9ED1600672AE9 /* SensorCard.swift */,
 			);
 			path = "upLink 2";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				3A71855E2C9EB7AF00A8126A /* ContentView.swift in Sources */,
 				3A71856A2C9EB7EE00A8126A /* ViewModel.swift in Sources */,
 				3A71855C2C9EB7AF00A8126A /* upLink_2App.swift in Sources */,
+				3A4E53412CA9ED1600672AE9 /* SensorCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
