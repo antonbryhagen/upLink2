@@ -19,7 +19,3 @@ client_secret : <CLIENT_SECRET>
 client_id : <CLIENT_ID>
 ```
 4. Run the app!
-<<<<<<< HEAD
-=======
-
->>>>>>> 31670436444c93472034004954005635f043e7ed
