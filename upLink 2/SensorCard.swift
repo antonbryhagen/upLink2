@@ -13,18 +13,24 @@ struct SensorCard: View {
     var sensorValue: String
     
     var body: some View {
-        GroupBox(label: 
-            Label(sensorName, systemImage: "thermometer.medium")
+        GroupBox(
+            //label: Label(sensorName, systemImage: "thermometer.medium")
         ) {
-            HStack (alignment: .top) {
-                Text(sensorValue)
-                    .font(.system(size: 28))
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Text("°C")
-                Spacer()
+            HStack {
+                Image(systemName: "thermometer.medium")
+                    .font(.system(size: 30))
+                VStack (alignment: .leading) {
+                    Text(sensorName)
+                    HStack (alignment: .top) {
+                        Text(sensorValue)
+                            .font(.system(size: 28))
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Text("°C")
+                        Spacer()
+                    }
+                    //.padding([.leading], 25)
+                }
             }
-            .padding([.leading], 25)
-            
         }
     }
 }
