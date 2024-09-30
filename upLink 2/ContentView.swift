@@ -31,6 +31,13 @@ struct ContentView: View {
                 viewModel.getTokenAndProceed()
             }
             .navigationTitle("myUplink 2")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: QuickViewSettings(viewModel: viewModel)){
+                        Image(systemName: "gearshape")
+                    }
+                }
+            }
             .refreshable {
                 viewModel.getTokenAndProceed()
                 lastUpdate = Date()
@@ -40,10 +47,10 @@ struct ContentView: View {
     }
     
     var formattedDate: String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm:ss" // hour:minute:second day/month (dd/MM) format
-            return formatter.string(from: lastUpdate)
-        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss" // hour:minute:second day/month (dd/MM) format
+        return formatter.string(from: lastUpdate)
+    }
 }
 
 #Preview {
