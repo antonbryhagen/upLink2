@@ -164,6 +164,14 @@ class ViewModel: ObservableObject {
     @Published var dataPoints: [DataPoint] = []
     @Published var selectedDataPoints: [String] = []
     
+    init() {
+        if let savedSelectedDataPoints = UserDefaults.standard.array(forKey: "selectedDataPoints") as? [String] {
+            self.selectedDataPoints = savedSelectedDataPoints
+        }else {
+            self.selectedDataPoints = []
+        }
+    }
+    
     /* 
      TODO: 
      Move system ID to hidden file

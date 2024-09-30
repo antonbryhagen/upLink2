@@ -39,6 +39,9 @@ struct QuickViewSettings: View {
                     sensorsList[dataPoint.parameterName] = false
                 }
             }
+            .onDisappear {
+                UserDefaults.standard.set(viewModel.selectedDataPoints, forKey: "selectedDataPoints")
+            }
         }
     }
 }
