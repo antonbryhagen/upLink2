@@ -8,13 +8,13 @@
 import Foundation
 
 class KeychainHandler{
-    func saveToKeychain(token: String){
-        let tokenData = token.data(using: .utf8)
+    func saveToKeychain(key: String, value: String){
+        let valueData = value.data(using: .utf8)
         
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "jwtToken",
-            kSecValueData as String: tokenData!,
+            kSecAttrAccount as String: key,
+            kSecValueData as String: valueData!,
             kSecAttrAccessible as String: kSecAttrAccessibleAfterFirstUnlock
         ]
         
@@ -23,30 +23,30 @@ class KeychainHandler{
         let status = SecItemAdd(query as CFDictionary, nil)
         
         if (status == errSecSuccess){
-            print("Token saved to keychain")
+            print("Value \(key) saved to keychain")
         }else{
-            print("Failed to save token")
+            print("Failed to save value \(key)")
         }
     }
     
-    func getFromKeychain() -> String?{
+    func getFromKeychain(key: String) -> String?{
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "jwtToken",
+            kSecAttrAccount as String: key,
             kSecReturnData as String: kCFBooleanTrue!,
             kSecMatchLimit as String: kSecMatchLimitOne
         ]
         
-        var tokenData: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &tokenData)
+        var valueData: AnyObject?
+        let status = SecItemCopyMatching(query as CFDictionary, &valueData)
         
         if status == errSecSuccess {
-            if let data = tokenData as? Data,
-               let token = String(data: data, encoding: .utf8) {
-                return token
+            if let data = valueData as? Data,
+               let value = String(data: data, encoding: .utf8) {
+                return value
             }
         }else {
-            print("Error getting token from keychain")
+            print("Error getting value \(key) from keychain")
         }
         return nil
     }

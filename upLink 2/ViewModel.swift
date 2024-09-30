@@ -51,7 +51,7 @@ class ViewModel: ObservableObject {
     func fetchJWTToken(clientID: String, clientSecret: String, completion: @escaping (String?) -> Void){
         var fetchNewToken: Bool = false
         
-        if let token = self.keychainHandler.getFromKeychain() {
+        if let token = self.keychainHandler.getFromKeychain(key: "jwtToken") {
             if let expirationDate = decodeJWTExp(token), expirationDate > Date() {
                 //valid token found in keychain
                 print("Using old jwt")
@@ -159,14 +159,16 @@ class ViewModel: ObservableObject {
     }
     
     func getTokenAndProceed() {
-        let clientID: String = getUplinkCreds(cred: "client_id")
-        let clientSecret: String = getUplinkCreds(cred: "client_secret")
+        //let clientID: String = getUplinkCreds(cred: "client_id")
+        //let clientSecret: String = getUplinkCreds(cred: "client_secret")
+        let clientID = keychainHandler.getFromKeychain(key: "clientId") ?? ""
+        let clientSecret = keychainHandler.getFromKeychain(key: "clientSecret") ?? ""
         fetchJWTToken(clientID: clientID, clientSecret: clientSecret) { token in
             if let token = token {
                 print("Token received")
                 // Proceed with token-based logic
                 //self.saveToKeychain(token: token)
-                self.keychainHandler.saveToKeychain(token: token)
+                self.keychainHandler.saveToKeychain(key: "jwtToken", value: token)
                 self.fetch(jwtToken: token)
             } else {
                 print("Failed to retrieve access token")
@@ -174,7 +176,8 @@ class ViewModel: ObservableObject {
         }
     }
     func fetch(jwtToken: String){
-        let deviceID: String = getUplinkCreds(cred: "device_id")
+        //let deviceID: String = getUplinkCreds(cred: "device_id")
+        let deviceID = keychainHandler.getFromKeychain(key: "deviceId") ?? ""
         
         guard let url = URL(string: "https://api.myuplink.com/v2/devices/\(deviceID)/points") else {
             return

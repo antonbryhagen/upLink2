@@ -36,7 +36,11 @@ struct Settings: View {
     }
     
     func saveCreds(){
+        let keychainHandler = KeychainHandler()
         
+        keychainHandler.saveToKeychain(key: "deviceId", value: deviceId)
+        keychainHandler.saveToKeychain(key: "clientId", value: clientId)
+        keychainHandler.saveToKeychain(key: "clientSecret", value: clientSecret)
     }
 }
 
