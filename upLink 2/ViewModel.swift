@@ -130,37 +130,7 @@ class ViewModel: ObservableObject {
         }
     }
     
-    /* 
-     TODO: 
-     Move system ID to hidden file
-     Only get new JWT if old expired (try and rerun technic?)
-     */
-    
-    func getUplinkCreds(cred: String) -> String{
-        //device_id, client_id, client_secret
-        var credToReturn: String = ""
-        
-        if let path = Bundle.main.path(forResource: "secrets", ofType: "plist") {
-            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-                do {
-                    let plistData = try PropertyListSerialization.propertyList(from: data, options: [], format: nil)
-                    if let dict = plistData as? [String: Any] {
-                        // Access Plist data here
-                        if let deviceId = dict[cred] as? String{
-                            credToReturn = deviceId
-                        }
-                    }
-                } catch {
-                    print("Error reading Plist: \(error)")
-                }
-            }
-        }
-        return credToReturn
-    }
-    
     func getTokenAndProceed() {
-        //let clientID: String = getUplinkCreds(cred: "client_id")
-        //let clientSecret: String = getUplinkCreds(cred: "client_secret")
         let clientID = keychainHandler.getFromKeychain(key: "clientId") ?? ""
         let clientSecret = keychainHandler.getFromKeychain(key: "clientSecret") ?? ""
         fetchJWTToken(clientID: clientID, clientSecret: clientSecret) { token in
@@ -176,7 +146,6 @@ class ViewModel: ObservableObject {
         }
     }
     func fetch(jwtToken: String){
-        //let deviceID: String = getUplinkCreds(cred: "device_id")
         let deviceID = keychainHandler.getFromKeychain(key: "deviceId") ?? ""
         
         guard let url = URL(string: "https://api.myuplink.com/v2/devices/\(deviceID)/points") else {
