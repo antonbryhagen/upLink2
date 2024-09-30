@@ -162,6 +162,7 @@ class ViewModel: ObservableObject {
     }
     
     @Published var dataPoints: [DataPoint] = []
+    @Published var selectedDataPoints: [String] = []
     
     /* 
      TODO: 

@@ -19,11 +19,11 @@ struct ContentView: View {
             ScrollView(.vertical, showsIndicators: true){
                 Text("Last update: \(formattedDate)")
                 ForEach(viewModel.dataPoints, id: \.self) { dataPoint in
-                    if sensorsToDisplay.contains(dataPoint.parameterName){
+                    if viewModel.selectedDataPoints.contains(dataPoint.parameterName){
                         SensorCard(sensorName: dataPoint.parameterName, sensorValue: String(dataPoint.value))
                     }
                 }
-                NavigationLink(destination: QuickViewSettings()){
+                NavigationLink(destination: QuickViewSettings(viewModel: viewModel)){
                     Text("Add or remove senors")
                 }
             }
