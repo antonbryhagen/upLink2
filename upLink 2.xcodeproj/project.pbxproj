@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A4E533F2CA841FB00672AE9 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4E533E2CA841FB00672AE9 /* secrets.plist */; };
 		3A4E53412CA9ED1600672AE9 /* SensorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E53402CA9ED1600672AE9 /* SensorCard.swift */; };
 		3A4E53432CAA086400672AE9 /* QuickViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E53422CAA086400672AE9 /* QuickViewSettings.swift */; };
 		3A71855C2C9EB7AF00A8126A /* upLink_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A71855B2C9EB7AF00A8126A /* upLink_2App.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A4E533E2CA841FB00672AE9 /* secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
 		3A4E53402CA9ED1600672AE9 /* SensorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorCard.swift; sourceTree = "<group>"; };
 		3A4E53422CAA086400672AE9 /* QuickViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickViewSettings.swift; sourceTree = "<group>"; };
 		3A7185582C9EB7AF00A8126A /* upLink 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "upLink 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,7 +66,6 @@
 				3A71855F2C9EB7B100A8126A /* Assets.xcassets */,
 				3A7185612C9EB7B100A8126A /* Preview Content */,
 				3A7185692C9EB7EE00A8126A /* ViewModel.swift */,
-				3A4E533E2CA841FB00672AE9 /* secrets.plist */,
 				3A4E53402CA9ED1600672AE9 /* SensorCard.swift */,
 				3A4E53422CAA086400672AE9 /* QuickViewSettings.swift */,
 				3AC5AB922CAB0DD700612A9F /* Settings.swift */,
@@ -143,7 +140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4E533F2CA841FB00672AE9 /* secrets.plist in Resources */,
 				3A7185632C9EB7B100A8126A /* Preview Assets.xcassets in Resources */,
 				3A7185602C9EB7B100A8126A /* Assets.xcassets in Resources */,
 			);

@@ -31,6 +31,12 @@ struct Settings: View {
                 }
             }
             .navigationTitle("Settings")
+            .onAppear{
+                let keychainHandler = KeychainHandler()
+                deviceId = keychainHandler.getFromKeychain(key: "deviceId") ?? ""
+                clientId = keychainHandler.getFromKeychain(key: "clientId") ?? ""
+                clientSecret = keychainHandler.getFromKeychain(key: "clientSecret") ?? ""
+            }
         }
         
     }

@@ -14,8 +14,6 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            let sensorsToDisplay = ["Current outd temp (BT1)", "Supply line (BT61)", "Return line (BT62)"]
-            
             ScrollView(.vertical, showsIndicators: true){
                 Text("Last update: \(formattedDate)")
                 ForEach(viewModel.dataPoints, id: \.self) { dataPoint in
