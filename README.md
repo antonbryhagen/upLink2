@@ -11,11 +11,6 @@ Start of by cloning this repo to your Mac
 ### Set up secrets.plist
 
 1. Create a new app on myUplink Dev Portal and save presented credentials
-2. Create a secrets.plist file in the myUplink 2 directory
-3. Follow the below template to create the key-value pairs
-```
-device_id : <DEVICE_ID>
-client_secret : <CLIENT_SECRET>
-client_id : <CLIENT_ID>
-```
-4. Run the app!
+2. Open the app and go to settings using the cogwheel in the upper right corner
+3. Enter credentials from myUplink and click save
+4. Go back and select some sensors to display, it should now work!
