@@ -18,8 +18,16 @@ struct QuickViewSettings: View {
                 List{
                     ForEach(viewModel.dataPoints, id: \.self) { dataPoint in
                         Toggle(dataPoint.parameterName, isOn: Binding(
-                            get: { sensorsList[dataPoint.parameterName] ?? false },
-                            set: { newValue in sensorsList[dataPoint.parameterName] = newValue }
+                            get: { viewModel.selectedDataPoints.contains(dataPoint.parameterName) },
+                            set: { newValue in
+                                if newValue {
+                                    viewModel.selectedDataPoints.append(dataPoint.parameterName)
+                                }else{
+                                    if let index = viewModel.selectedDataPoints.firstIndex(of: dataPoint.parameterName) {
+                                        viewModel.selectedDataPoints.remove(at: index)
+                                    }
+                                }
+                            }
                         ))
                     }
                 }
@@ -39,7 +47,7 @@ struct QuickViewSettings: View {
                         sensorsToDisplay.append(sensorName)
                     }
                 }
-                viewModel.selectedDataPoints = sensorsToDisplay
+               // viewModel.selectedDataPoints = sensorsToDisplay
             }
         }
     }
