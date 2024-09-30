@@ -39,16 +39,6 @@ struct QuickViewSettings: View {
                     sensorsList[dataPoint.parameterName] = false
                 }
             }
-            .onDisappear{
-                //save selected sensors
-                var sensorsToDisplay: [String] = []
-                for (sensorName, isSelected) in sensorsList {
-                    if(isSelected){
-                        sensorsToDisplay.append(sensorName)
-                    }
-                }
-               // viewModel.selectedDataPoints = sensorsToDisplay
-            }
         }
     }
 }
