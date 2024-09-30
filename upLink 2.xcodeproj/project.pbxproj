@@ -16,6 +16,7 @@
 		3A7185632C9EB7B100A8126A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7185622C9EB7B100A8126A /* Preview Assets.xcassets */; };
 		3A71856A2C9EB7EE00A8126A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7185692C9EB7EE00A8126A /* ViewModel.swift */; };
 		3AC5AB932CAB0DD700612A9F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5AB922CAB0DD700612A9F /* Settings.swift */; };
+		3AC5AB952CAB111700612A9F /* KeychainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5AB942CAB111700612A9F /* KeychainHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3A7185622C9EB7B100A8126A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A7185692C9EB7EE00A8126A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3AC5AB922CAB0DD700612A9F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3AC5AB942CAB111700612A9F /* KeychainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				3A4E53402CA9ED1600672AE9 /* SensorCard.swift */,
 				3A4E53422CAA086400672AE9 /* QuickViewSettings.swift */,
 				3AC5AB922CAB0DD700612A9F /* Settings.swift */,
+				3AC5AB942CAB111700612A9F /* KeychainHandler.swift */,
 			);
 			path = "upLink 2";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				3A71855E2C9EB7AF00A8126A /* ContentView.swift in Sources */,
 				3A71856A2C9EB7EE00A8126A /* ViewModel.swift in Sources */,
 				3A71855C2C9EB7AF00A8126A /* upLink_2App.swift in Sources */,
+				3AC5AB952CAB111700612A9F /* KeychainHandler.swift in Sources */,
 				3A4E53412CA9ED1600672AE9 /* SensorCard.swift in Sources */,
 				3A4E53432CAA086400672AE9 /* QuickViewSettings.swift in Sources */,
 			);

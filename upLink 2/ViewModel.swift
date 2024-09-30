@@ -21,49 +21,7 @@ struct DataPoint: Hashable, Codable {
 
 class ViewModel: ObservableObject {
     
-    //move keychain to seperate file and make more modular
-    func saveToKeychain(token: String){
-        let tokenData = token.data(using: .utf8)
-        
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "jwtToken",
-            kSecValueData as String: tokenData!,
-            kSecAttrAccessible as String: kSecAttrAccessibleAfterFirstUnlock
-        ]
-        
-        SecItemDelete(query as CFDictionary)
-        
-        let status = SecItemAdd(query as CFDictionary, nil)
-        
-        if (status == errSecSuccess){
-            print("Token saved to keychain")
-        }else{
-            print("Failed to save token")
-        }
-    }
-    
-    func getFromKeychain() -> String?{
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "jwtToken",
-            kSecReturnData as String: kCFBooleanTrue!,
-            kSecMatchLimit as String: kSecMatchLimitOne
-        ]
-        
-        var tokenData: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &tokenData)
-        
-        if status == errSecSuccess {
-            if let data = tokenData as? Data,
-               let token = String(data: data, encoding: .utf8) {
-                return token
-            }
-        }else {
-            print("Error getting token from keychain")
-        }
-        return nil
-    }
+    let keychainHandler = KeychainHandler()
     
     func decodeJWTExp(_ token: String) -> Date?{
         let segments = token.split(separator: ".")
@@ -93,7 +51,7 @@ class ViewModel: ObservableObject {
     func fetchJWTToken(clientID: String, clientSecret: String, completion: @escaping (String?) -> Void){
         var fetchNewToken: Bool = false
         
-        if let token = getFromKeychain() {
+        if let token = self.keychainHandler.getFromKeychain() {
             if let expirationDate = decodeJWTExp(token), expirationDate > Date() {
                 //valid token found in keychain
                 print("Using old jwt")
@@ -207,7 +165,8 @@ class ViewModel: ObservableObject {
             if let token = token {
                 print("Token received")
                 // Proceed with token-based logic
-                self.saveToKeychain(token: token)
+                //self.saveToKeychain(token: token)
+                self.keychainHandler.saveToKeychain(token: token)
                 self.fetch(jwtToken: token)
             } else {
                 print("Failed to retrieve access token")
