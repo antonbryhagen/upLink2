@@ -33,7 +33,7 @@ struct ContentView: View {
             .navigationTitle("myUplink 2")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: QuickViewSettings(viewModel: viewModel)){
+                    NavigationLink(destination: Settings()){
                         Image(systemName: "gearshape")
                     }
                 }
