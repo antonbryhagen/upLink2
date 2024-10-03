@@ -12,6 +12,6 @@ Start of by cloning this repo to your Mac
 
 1. Create a new app on myUplink Dev Portal and save presented credentials
 2. Open the app and go to settings using the cogwheel in the upper right corner
-   ![screenshot](screenshots/home.png)
+   <img src="screenshots/home.png" alt="drawing" width="200"/>
 4. Enter credentials from myUplink and click save
 5. Go back and select some sensors to display, it should now work!
