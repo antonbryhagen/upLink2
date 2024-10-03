@@ -1,4 +1,4 @@
-# WIP iOS App Using upLink API
+# iOS App For NIBE Boiler Using upLink API
 
 App is in development and may contain many bugs and bad code 
 
