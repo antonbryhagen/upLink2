@@ -10,7 +10,7 @@ App is in development and may contain many bugs and bad code
 
 Start of by cloning this repo to your Mac
 
-### Set up secrets.plist
+### Get and save API credentials
 
 1. Create a new app on myUplink Dev Portal and save presented credentials
 2. Open the app and go to settings using the cogwheel in the upper right corner
